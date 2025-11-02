@@ -11,9 +11,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
   const [analysis, setAnalysis] = useState<CVResponse | null>(null);
 
-  const handleAnalyzeComplete = (result: CVResponse) => {
+  const handleAnalyzeComplete = (result: CVResponse, goToTemplates = false) => {
     setAnalysis(result);
-    setCurrentPage("results");
+    setCurrentPage(goToTemplates ? "templates" : "results");
   };
 
   return (
