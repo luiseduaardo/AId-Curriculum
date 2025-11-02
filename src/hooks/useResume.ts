@@ -1,38 +1,30 @@
-import { useCallback, useMemo, useRef, useState } from "react";
-import { api } from "../services/api";
+import { useState } from "react";
 import type { CVRequest, CVResponse } from "../types/resume";
+import { getSampleGeneratedCv, getSampleLearningResources } from "../components/data/mockData";
 
 export function useResumeApi() {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const abortRef = useRef<AbortController | null>(null);
 
-  const abort = useCallback(() => {
-    abortRef.current?.abort();
-  }, []);
-
-  const analyze = useCallback(async (payload: CVRequest) => {
+  async function analyze(payload: CVRequest): Promise<CVResponse> {
     setLoading(true);
-    setError(null);
-    abortRef.current?.abort();
-    const controller = new AbortController();
-    abortRef.current = controller;
-    try {
-      const data = await api.post<CVResponse>("api/v1/generate-cv", payload, {
-        signal: controller.signal,
-      });
-      return data;
-    } catch (e: any) {
-      if (e?.name === "AbortError") return undefined;
-      setError(e?.message || "Erro ao analisar currículo");
-      throw e;
-    } finally {
-      setLoading(false);
-    }
-  }, []);
+    // Simulate network latency
+    await new Promise((r) => setTimeout(r, 300));
+    setLoading(false);
 
-  return useMemo(
-    () => ({ loading, error, analyze, abort }),
-    [loading, error, analyze, abort]
-  );
+    return {
+      generated_cv: getSampleGeneratedCv(),
+      job_compatibility: {
+        compatibility_score: 82,
+        skills: [
+          { name: "Python", has_skill: true },
+          { name: "React", has_skill: true },
+          { name: "Kubernetes", has_skill: false },
+        ],
+        improvement_suggestions: ["Considere aprofundar seus conhecimentos em Kubernetes"],
+        learning_resources: getSampleLearningResources(),
+      },
+    };
+  }
+
+  return { analyze, loading };
 }

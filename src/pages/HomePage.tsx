@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { LogoMain, LogoBullet } from "./Logo";
-import { FeatureList } from "./fragments/FeatureList";
-import { getHomeFeatures } from "./data/mockData";
+import { LogoMain, LogoBullet } from "../components/Logo";
+import { FeatureList } from "../components/fragments/FeatureList";
+import { getHomeFeatures } from "../components/data/mockData";
 
 interface HomePageProps {
   onStart: () => void;
@@ -56,7 +56,7 @@ export function HomePage({ onStart }: HomePageProps) {
           className="text-center max-w-2xl mb-12"
           style={{ 
             color: '#F0F7DA',
-            fontSize: '1.125rem',
+
             lineHeight: '1.6',
             fontFamily: 'Questrial, Helvetica World, sans-serif'
           }}
@@ -133,3 +133,4 @@ export function HomePage({ onStart }: HomePageProps) {
     </div>
   );
 }
+

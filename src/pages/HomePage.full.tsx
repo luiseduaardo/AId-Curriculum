@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
-import { LogoMain, LogoBullet } from "./Logo";
-import { FeatureList } from "./fragments/FeatureList";
-import { getHomeFeatures } from "./data/mockData";
+import { LogoMain, LogoBullet } from "../components/Logo";
+import { FeatureList } from "../components/fragments/FeatureList";
+import { getHomeFeatures } from "../components/data/mockData";
 
 interface HomePageProps {
   onStart: () => void;

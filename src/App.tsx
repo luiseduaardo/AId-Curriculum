@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { HomePage } from "./components/HomePage";
-import { InputPage } from "./components/InputPage";
-import { ResultsPage } from "./components/ResultsPage";
-import { TemplatesPage } from "./components/TemplatesPage";
+import { HomePage } from "./pages/HomePage";
+import { InputPage } from "./pages/InputPage";
+import { ResultsPage } from "./pages/ResultsPage";
+import { TemplatesPage } from "./pages/TemplatesPage";
 import type { CVResponse } from "./types/resume";
 
 type Page = "home" | "input" | "results" | "templates";

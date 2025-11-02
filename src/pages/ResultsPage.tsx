@@ -1,14 +1,14 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, TrendingUp, Lightbulb, BookOpen, Palette } from "lucide-react";
-import { Button } from "./ui/button";
-import { Card } from "./ui/card";
-import { Progress } from "./ui/progress";
-import { Badge } from "./ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { LogoMain } from "./Logo";
-import { GeneratedCvView } from "./fragments/GeneratedCvView";
-import { getSampleGeneratedCv } from "./data/mockData";
+import { Button } from "../components/ui/button";
+import { Card } from "../components/ui/card";
+import { Progress } from "../components/ui/progress";
+import { Badge } from "../components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
+import { LogoMain } from "../components/Logo";
+import { GeneratedCvView } from "../components/fragments/GeneratedCvView";
+import { getSampleGeneratedCv } from "../components/data/mockData";
 import type { CVResponse } from "../types/resume";
 
 interface ResultsPageProps {
@@ -131,7 +131,7 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
                           border: skill.has_skill ? 'none' : '2px solid #65B8A6'
                         }}
                       >
-                        {skill.has_skill ? '✓ ' : '○ '}
+                        {skill.has_skill ? '\u2713 ' : '\u25cb '}
                         {skill.name}
                       </Badge>
                     </motion.div>
@@ -139,7 +139,7 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
                 </div>
                 <div className="mt-6 p-4 rounded-lg" style={{ backgroundColor: '#F0F7DA' }}>
                   <p style={{ color: '#2D6073' }}>
-                    <strong>Legenda:</strong> ✓ = Você possui • ○ = Recomendado adicionar
+                    <strong>Legenda:</strong> \u2713 = Você possui \u2022 \u25cb = Recomendado adicionar
                   </p>
                 </div>
               </Card>
@@ -243,3 +243,4 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
     </div>
   );
 }
+ 
