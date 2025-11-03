@@ -4,7 +4,7 @@ import { ExperienceList } from "./ExperienceList";
 import { EducationList } from "./EducationList";
 import { SkillsPills } from "./SkillsPills";
 
-export function GeneratedCvView({ cv }: { cv: GeneratedCV }) {
+export function GeneratedCvView({ cv }: Readonly<{ cv: GeneratedCV }>) {
   return (
     <div>
       <ProfileInfo info={cv.personal_info} />
@@ -20,8 +20,8 @@ export function GeneratedCvView({ cv }: { cv: GeneratedCV }) {
       {cv.certifications && cv.certifications.length > 0 && (
         <div className="mb-6">
           <h3 className="text-xl font-semibold mb-2">Certificações</h3>
-          <ul className="list-disc ml-6">
-            {cv.certifications.map((c, i) => <li key={i}>{c}</li>)}
+            <ul className="list-disc ml-6">
+            {cv.certifications.map((c: string) => <li key={c}>{c}</li>)}
           </ul>
         </div>
       )}

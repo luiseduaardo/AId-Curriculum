@@ -8,8 +8,8 @@ export function EducationList({ items }: { items: EducationEntry[] }) {
         <p>Nenhuma formação cadastrada.</p>
       ) : (
         <ul className="space-y-4">
-          {items.map((edu, idx) => (
-            <li key={idx} className="border-b pb-2">
+          {items.map((edu) => (
+            <li key={`${edu.degree}-${edu.institution}-${edu.period}`} className="border-b pb-2">
               <div><b>{edu.degree}</b> - {edu.institution}</div>
               <div className="text-sm text-gray-600">{edu.period}</div>
             </li>

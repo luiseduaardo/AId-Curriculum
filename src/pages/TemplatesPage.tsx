@@ -5,11 +5,11 @@ import { ArrowLeft, Download, Eye } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Card } from "../components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../components/ui/dialog";
-import { LogoMain } from "../components/Logo";
+import { LogoMain } from "../components/Logo/Logo";
 import type { CVResponse } from "../types/resume";
 import { styleMap, type TemplateStyle } from "../components/styles/cvStyles";
-import { CvPreview } from "../components/CvPreview";
-import { TemplatePreview } from "../components/TemplatePreview";
+import { CvPreview } from "../components/CvPreview/CvPreview";
+import { TemplatePreview } from "../components/TemplatePreview/TemplatePreview";
 
 interface Template {
   id: number;

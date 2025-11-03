@@ -1,11 +1,10 @@
 import { motion } from "motion/react";
-import { LogoMain, LogoBullet } from "../components/Logo/Logo";
-import { FeatureList } from "../components/fragments/FeatureList";
-import { getHomeFeatures } from "../components/data/mockData";
+import { LogoMain, LogoBullet } from "../../components/Logo/Logo";
+import { FeatureList } from "../../components/fragments/FeatureList";
+import { getHomeFeatures } from "../../components/data/mockData";
+import "./HomePage.css";
 
-interface HomePageProps {
-  onStart: () => void;
-}
+import type { HomePageProps } from "./HomePage.types";
 
 export function HomePage({ onStart }: HomePageProps) {
   const features = getHomeFeatures();
@@ -133,4 +132,3 @@ export function HomePage({ onStart }: HomePageProps) {
     </div>
   );
 }
-

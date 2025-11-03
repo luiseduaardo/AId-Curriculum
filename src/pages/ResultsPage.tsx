@@ -6,7 +6,7 @@ import { Card } from "../components/ui/card";
 import { Progress } from "../components/ui/progress";
 import { Badge } from "../components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
-import { LogoMain } from "../components/Logo";
+import { LogoMain } from "../components/Logo/Logo";
 import { GeneratedCvView } from "../components/fragments/GeneratedCvView";
 import { getSampleGeneratedCv } from "../components/data/mockData";
 import type { CVResponse } from "../types/resume";
@@ -115,9 +115,9 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
                   Tecnologias e Habilidades Requeridas
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {(jc?.skills || []).map((skill, index) => (
+                  {(jc?.skills || []).map((skill, index: number) => (
                     <motion.div
-                      key={index}
+                      key={skill.name}
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.05 }}
@@ -157,9 +157,9 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
                   Sugestões de Melhoria
                 </h3>
                 <div className="space-y-4">
-                  {(jc?.improvement_suggestions || []).map((suggestion, index) => (
+                  {(jc?.improvement_suggestions || []).map((suggestion: string, index: number) => (
                     <motion.div
-                      key={index}
+                      key={`${suggestion}-${index}`}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
@@ -188,9 +188,9 @@ export function ResultsPage({ onBack, onViewTemplates, analysis }: ResultsPagePr
                   Recursos de Aprendizado
                 </h3>
                 <div className="space-y-6">
-                  {(jc?.learning_resources || []).map((res, index) => (
+                  {(jc?.learning_resources || []).map((res, index: number) => (
                     <motion.a
-                      key={index}
+                      key={res.url}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}

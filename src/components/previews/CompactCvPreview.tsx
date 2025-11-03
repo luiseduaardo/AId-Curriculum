@@ -6,7 +6,7 @@ interface CompactCvPreviewProps {
   style: TemplateStyle;
 }
 
-export function CompactCvPreview({ cv, style }: CompactCvPreviewProps) {
+export function CompactCvPreview({ cv, style }: Readonly<CompactCvPreviewProps>) {
   const styles = styleMap[style];
   const { colors, fonts } = styles;
 
@@ -75,8 +75,8 @@ export function CompactCvPreview({ cv, style }: CompactCvPreviewProps) {
         }}>
           Experiência
         </h2>
-        {cv.experience_entries?.slice(0, 2).map((exp: { title: string; company: string; period: string }, index: number) => (
-          <div key={index} className="mb-4">
+        {cv.experience_entries?.slice(0, 2).map((exp: { title: string; company: string; period: string }, idx: number) => (
+          <div key={`${exp.title}-${exp.company}-${exp.period}-${idx}`} className="mb-4">
             <div style={{ fontWeight: 600, color: colors.primary }}>
               {exp.title} - {exp.company}
             </div>
@@ -100,9 +100,9 @@ export function CompactCvPreview({ cv, style }: CompactCvPreviewProps) {
             Habilidades
           </h2>
           <div className="flex flex-wrap gap-2">
-            {cv.skills.slice(0, 5).map((skill: string, index: number) => (
+            {cv.skills.slice(0, 5).map((skill: string) => (
               <span
-                key={index}
+                key={skill}
                 style={{
                   display: 'inline-block',
                   padding: '0.25rem 0.75rem',

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowLeft, FileText, Sparkles, Upload } from "lucide-react";
-import { LogoMain } from "../components/Logo";
+import { LogoMain } from "../components/Logo/Logo";
 import { Textarea } from "../components/ui/textarea";
 import { Button } from "../components/ui/button";
-import { PdfUploader } from "../components/PdfUploader";
+import { PdfUploader } from "../components/PdfUploader/PdfUploader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import { useResumeApi } from "../hooks/useResume";
 import type { CVRequest, CVResponse } from "../types/resume";
