@@ -1,13 +1,22 @@
 import React from 'react'
-import styles from './HomePage.module.css'
-import Hero from '@/components/home/Hero'
-import Actions from '@/components/home/Actions'
+import './HomePage.css'
+import HeroSection from './components/HeroSection'
+import FeaturesList from './components/FeaturesList'
+import CTACard from './components/CTACard'
 
-export default function HomePage(){
+const HomePage: React.FC = () => {
   return (
-    <div className={styles.page}>
-      <Hero />
-      <Actions />
-    </div>
+    <main className="hp-root">
+      <HeroSection />
+
+      <section className="hp-resources">
+        <div className="hp-resources-inner">
+          <FeaturesList />
+          <CTACard />
+        </div>
+      </section>
+    </main>
   )
 }
+
+export default HomePage

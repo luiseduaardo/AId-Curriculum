@@ -9,7 +9,11 @@ body{
   background:var(--bg);
   color:var(--fg);
 }
-.app-root{max-width:1200px;margin:0 auto;padding:1.5rem 2rem}
+
 
 /* ensure main stretches and centers content */
-main{min-height:calc(100vh - 80px);display:flex;align-items:flex-start}
+main{
+  min-height: auto;
+  display: block;
+  align-items: initial;
+}
