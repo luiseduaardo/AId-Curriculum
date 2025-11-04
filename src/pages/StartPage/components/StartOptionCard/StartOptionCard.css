@@ -1,0 +1,44 @@
+.start-option-card {
+	background: #2B3A42;
+	color: white;
+	padding: 30px;
+	border-radius: 12px;
+	max-width: 300px;
+	min-height: 250px;
+	cursor: pointer;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 15px;
+	transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+	border: none; /* reset for button */
+}
+
+.start-option-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+	color: white;
+	font-size: 40px;
+	line-height: 1;
+}
+
+.card-title {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0;
+}
+
+.card-description {
+	font-size: 14px;
+	opacity: 0.8;
+	margin: 0;
+}
+
+@media (max-width:860px){
+	.start-option-card{width:100%;max-width:none}
+}

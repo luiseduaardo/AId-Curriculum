@@ -1,6 +1,6 @@
 import React from 'react'
 import './HeroSection.css'
-import Title from '@/components/Title'
+import Title from '@/shared_components/Title'
 
 const HeroSection: React.FC = () => {
   return (

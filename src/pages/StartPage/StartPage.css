@@ -1,0 +1,92 @@
+/* Copilot, crie o CSS da página. Use o fundo verde-claro (resources-bg) e a cor de texto escura (--text-dark) da homepage. */
+
+/* Cores: Herde cores do HomePage.css ou defina localmente. */
+:root {
+  --resources-bg: #E8F5E9; /* Verde-claro */
+  --text-dark: #0b1220;
+  --accent: #2dd4bf; 
+}
+
+.start-page-root {
+  min-height: 100vh;
+  background: var(--resources-bg);
+  color: var(--text-dark);
+  padding: 0 20px;
+}
+
+/* REMOVIDO: estilos de .start-header (o header é injetado externamente) */
+
+
+/* Conteúdo Principal */
+.start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0 80px 0;
+  position: relative; /* necessário para posicionamento absoluto do botão */
+  padding-top: 80px; /* espaço extra para o botão voltar flutuante */
+}
+
+/* Botão Voltar flutuante dentro do conteúdo */
+.back-btn-standalone {
+  background: none;
+  border: none;
+  color: var(--text-dark); /* Cor do texto escuro no fundo claro */
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  transition: opacity 0.2s;
+  
+  /* Posicionamento absoluto/flutuante */
+  position: absolute;
+  top: 40px; /* Ajustar a distância do topo */
+  left: 50%; /* Centralizar a partir do 50% */
+  transform: translateX(-50%); /* Voltar metade da largura para centralizar o container */
+  max-width: 1100px; 
+  width: calc(100% - 40px); /* 100% - padding laterais */
+  text-align: left; /* Alinhar o texto à esquerda do container */
+}
+
+.back-btn-standalone:hover {
+  opacity: 0.7;
+}
+
+.start-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* Container de Opções (Centralizado) */
+.start-options-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Espaço entre os cards */
+  width: 100%;
+  max-width: 700px; /* Limita a largura do container de opções */
+}
+
+/* Responsividade: Empilhar cards em telas pequenas */
+@media (max-width: 768px) {
+  .start-options-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .start-title {
+    font-size: 30px;
+  }
+}
+/* Basic StartPage styles */
+.sp-root{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;}
+.sp-hero{background: linear-gradient(180deg,#0b2a3a,#042027);color: #fff;padding:64px 0;text-align:center}
+.sp-hero-inner{max-width:1100px;margin:0 auto}
+.sp-options{background: #f7faf9;padding:48px 0}
+.sp-options-inner{max-width:1100px;margin:0 auto;display:flex;gap:20px;justify-content:center}
+
+@media (max-width:860px){
+  .sp-options-inner{flex-direction:column;align-items:stretch}
+}
