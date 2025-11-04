@@ -1,0 +1,63 @@
+/* Copilot, crie o CSS da página. Use o fundo verde-claro e o card branco centralizado, movido para o topo. */
+
+.page-card-layout-root {
+  /* Fundo verde-claro que cobre toda a viewport */
+  /* Corrigir o min-height para incluir o espaço do header global (que não é absoluto nesta página) */
+  min-height: calc(100vh - 0px); /* O Header é estático, então não precisa de ajuste no min-height */
+  background: var(--resources-bg, #E8F5E9);
+  color: var(--text-dark, #0b1220);
+  padding: 0 20px;
+  
+  /* Centraliza o card-container */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* NOVO: Alinha o card para o topo (mais bonito visualmente) */
+  
+  /* Ajustar padding-top: Diminuir para mover o card para cima, dando espaço para o Header */
+  padding-top: 40px; 
+  padding-bottom: 40px; 
+  
+  width: 100%;
+}
+
+/* O grande Card Branco que envolve todo o conteúdo */
+.card-container {
+  background: #ffffff;
+  color: var(--text-dark, #0b1220);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+  padding: 40px;
+}
+
+.content-inner {
+  text-align: center;
+}
+
+/* NOVO: Container de Opções (Layout de 2 Colunas) */
+.options-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .page-card-layout-root {
+    padding-top: 20px;
+    align-items: flex-start;
+  }
+  .card-container {
+    padding: 20px;
+  }
+}
+
+/* Responsividade: Empilhar cards em telas pequenas */
+@media (max-width: 600px) { /* Usar 600px para empilhar antes de 768px */
+  .options-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

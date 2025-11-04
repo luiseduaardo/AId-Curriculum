@@ -1,7 +1,8 @@
 import React from 'react'
-import './StartPage.css'
-// useNavigate not needed here; header handles back navigation
-import StartOptionCard from './components/StartOptionCard'
+// REMOVER: './StartPage.css' (Estilos de layout serão movidos)
+import { useNavigate } from 'react-router-dom'
+import OptionCard from '@/shared_components/OptionCard/OptionCard'
+import PageCardLayout from '@/shared_components/PageCardLayout/PageCardLayout' // NOVO: Importar Layout
 
 // Ícones SVG simples (substituindo o "raio" e o "documento")
 const SparkleIcon = () => (
@@ -13,38 +14,37 @@ const FileIcon = () => (
 
 
 const StartPage: React.FC = () => {
-  // Função placeholder para navegação (a ser definida com a próxima tela)
+  const navigate = useNavigate()
+
+  // Navegar para a rota selecionada
   const handleSelectOption = (path: string) => {
-    console.log(`Navegando para: ${path}`)
-    // navigate(path) // O header global cuidará do voltar/navegação
+    navigate(path)
   }
 
   return (
-    <div className="start-page-root">
-      
-  {/* REMOVER O HEADER DUPLICADO, POIS ELE É INJETADO PELO App.tsx */}
-  {/* <header className="start-header">... REMOVIDO ...</header> */}
-
-      {/* Conteúdo Principal */}
-      <section className="start-content">
-        <h1 className="start-title">Qual seu ponto de partida?</h1>
+    // NOVO: Usar o PageCardLayout
+    <PageCardLayout>
+      <section className="start-content content-inner"> {/* Usar a classe content-inner para centralização de texto */}
+        <h1 className="main-title">Qual seu ponto de partida?</h1> {/* Mudar para main-title */}
         
-        <div className="start-options-container">
-          <StartOptionCard
+        <div className="options-container"> {/* Mudar para options-container */}
+          {/* [Manter OptionCard para 'Comece do zero']... */}
+          <OptionCard
             icon={<SparkleIcon />}
             title="Comece do zero"
             description="Vamos construir seu currículo juntos através de perguntas simples."
-            onClick={() => handleSelectOption('/new-cv')} // Rota futura
+            onClick={() => handleSelectOption('/new-cv')} 
           />
-          <StartOptionCard
+          {/* [Manter OptionCard para 'Melhore um currículo pronto']... */}
+          <OptionCard
             icon={<FileIcon />}
             title="Melhore um currículo pronto"
             description="Cole seu currículo atual e receba análise e sugestões."
-            onClick={() => handleSelectOption('/optimize-cv')} // Rota futura
+            onClick={() => handleSelectOption('/optimize-cv')}
           />
         </div>
       </section>
-    </div>
+    </PageCardLayout>
   )
 }
 

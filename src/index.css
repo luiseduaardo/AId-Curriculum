@@ -1,6 +1,11 @@
 :root{
   --bg: #0f172a;
   --fg: #e6eef8;
+  --resources-bg: #E8F5E9; /* Fundo Claro */
+  --text-dark: #0b1220;
+  
+  /* NOVO: Incluir a cor do Hero aqui para uso pelo Header global */
+  --navy: #1A237E;
 }
 html,body,#root{height:100%;}
 body{
@@ -11,9 +16,57 @@ body{
 }
 
 
-/* ensure main stretches and centers content */
-main{
-  min-height: auto;
-  display: block;
-  align-items: initial;
+/* Ajuste em main para acomodar Header e Router corretamente */
+.app-main-layout, main{
+  /* Garante que o main ocupe a altura total do corpo */
+  min-height: 100vh; 
+  
+  /* NOVO: Mudar o background PADRÃO para o CLARO */
+  background: var(--resources-bg);
+
+  /* Layout Flexbox: Header (fixo) + Conteúdo (restante) */
+  display: flex; 
+  flex-direction: column; 
+  align-items: stretch;
+  /* Transição suave de background para evitar flash entre rotas */
+  transition: background-color 240ms ease;
+}
+
+/* O Router Wrapper deve ocupar o restante da altura e largura */
+.router-content-wrapper {
+  flex-grow: 1; 
+  position: relative; /* CRUCIAL: Define o contexto de posicionamento ABSOLUTO para os filhos do Router */
+  width: 100%;
+  overflow: hidden; /* Oculta o conteúdo animado que sai da tela */
+}
+
+/* Ajustar o wrapper de transição de rota */
+.page-transition-wrapper {
+  width: 100%;
+  height: 100%; 
+  /* Agora é ABSOLUTO ao .router-content-wrapper, e não ao body/html */
+  position: absolute; 
+  top: 0;
+  left: 0;
+}
+
+/* Garantir que os elementos de página animados sejam transparentes por padrão
+   para deixar o background do main aparecer durante a transição. */
+.page-transition-wrapper > * {
+  background: transparent !important;
+}
+
+/* Também garantir que qualquer container de página (ex: .page) não force um
+   fundo branco durante a animação. Ajuste conforme suas classes de página. */
+.page, .page-inner {
+  background: transparent;
+}
+
+/* NOVO: Estilo para o fundo durante as transições de fluxo (StartPage, NewCVTypePage) */
+/* .app-main-layout.is-flow-page removed: default main background is now light */
+
+/* Corrigir o min-height para incluir o espaço do header global (que não é absoluto nesta página) */
+.page-card-layout-root {
+  min-height: calc(100vh - 40px); /* Ajustado para compensar o Header estático (aprox. 40px de altura) */
+  /* ... (Manter outros estilos) ... */
 }

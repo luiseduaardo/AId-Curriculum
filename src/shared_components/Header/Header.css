@@ -1,11 +1,8 @@
 .site-header{
-  background: transparent; /* allow hero gradient to show through */
-  color: #fff;
+  /* Estilos Padrão (para fluxo: StartPage, NewCVTypePage - estático) */
+  position: static; 
+  color: var(--text-dark, #0b1220); /* Alterado para a cor escura (melhor padrão) */
   padding: 18px 0;
-  position: absolute; /* overlay on top of hero */
-  top: 0;
-  left: 0;
-  right: 0;
   width: 100%;
   z-index: 10;
 }
@@ -22,13 +19,23 @@
 .nav .btn.primary{background: var(--accent, #2dd4bf);color:#042027}
 .nav .btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.18);color:#fff}
 
+/* NOVO: Estilos ESPECÍFICOS para a HomePage (Flutuante e Transparente) */
+.site-header.is-homepage {
+  position: absolute !important; 
+  top: 0; left: 0; right: 0;
+  /* AJUSTE FINAL: Aplicar o GRADIENTE de cor do Hero para garantir que combine. */
+  /* As variáveis --navy e --navy-2 estão em src/index.css e HomePage.css. */
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 60%) !important;
+  color: #fff !important; /* Texto branco no Hero */
+  padding: 18px 0;
+}
+
 /* NOVO: Estilos ESPECÍFICOS para StartPage. */
 .site-header.is-start-page {
-  position: static; /* Não flutuar; fica na posição normal */
-  background: var(--resources-bg); /* Cor de fundo da StartPage */
-  color: var(--text-dark); /* Cor do texto escuro */
-  padding: 20px 0; /* Padding ajustado */
-  z-index: auto; 
+  /* Não precisa de static, pois o padrão agora é static */
+  background: var(--resources-bg);
+  color: var(--text-dark);
+  padding: 20px 0;
 }
 
 /* NOVO: Botão Voltar (estilo minimalista) */

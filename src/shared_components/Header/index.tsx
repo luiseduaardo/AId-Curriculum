@@ -9,35 +9,35 @@ const Header: React.FC = () => {
   // NOVO: Obter a localização atual e o hook de navegação
   const location = useLocation()
   
-  // Condição para exibir o botão 'Voltar' (apenas na rota /start)
-  const isStartPage = location.pathname === '/start'
+  // Condição CORRIGIDA: Exibir o BackButton se a rota NÃO for a HomePage ('/')
+  const isStartFlow = location.pathname !== '/'
+  // A página atual deve usar o Header adaptado (fundo claro, estático)
+  const isAdaptedPage = location.pathname === '/start' || location.pathname === '/new-cv' // Incluir a nova rota
 
   // Determinar o conteúdo da seção 'brand' (depende da rota)
   let brandContent;
 
-  if (isStartPage) {
-    // Na página de início, mostramos o BackButton à esquerda e o logo à direita (no nav)
-    brandContent = <BackButton to="/" />
+  if (isStartFlow) {
+    // Na rota do fluxo, mostra o BackButton à esquerda
+    brandContent = <BackButton /> // Não precisa do 'to', pois o padrão é navigate(-1)
   } else {
-    // Na HomePage, mostramos o logo à esquerda
-    brandContent = <Title small />
+    // Na HomePage ('/'): NÃO MOSTRAR NADA no local do Logo para evitar redundância.
+    brandContent = <></>
   }
 
   return (
-    // AJUSTE: Remova a classe 'site-header' que tinha 'position: absolute' na HomePage 
-    // e use uma classe mais genérica para que o Header não flutue na StartPage.
-    <header className={`site-header ${isStartPage ? 'is-start-page' : ''}`}>
+    // AJUSTE: Aplicar a classe de adaptação se estiver em qualquer página do fluxo de início
+    <header className={`site-header ${isAdaptedPage ? 'is-start-page' : ''}`}>
       <div className="header-inner">
         {/* Exibir botão Voltar ou Logo, dependendo da rota */}
         <div className="brand">
-          {isStartPage && brandContent}
-          {!isStartPage && brandContent}
+          {brandContent} 
         </div>
         
-        {/* Na StartPage, o Logo AiD fica na nav (direita) */}
+        {/* Logo AiD sempre à direita nas páginas de fluxo, ou botões na HomePage */}
         <nav className="nav">
-          {isStartPage && <Title small />} {/* Logo à direita na StartPage */}
-          {!isStartPage && <>{/* ... botões de autenticação ... */}</>}
+          {isStartFlow && <Title small />} 
+          {!isStartFlow && <>{/* ... botões de autenticação da HomePage ... */}</>}
         </nav>
       </div>
     </header>
