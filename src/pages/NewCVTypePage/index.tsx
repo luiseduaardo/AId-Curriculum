@@ -14,9 +14,9 @@ const SparkleIcon = () => (
 const NewCVTypePage: React.FC = () => {
   const navigate = useNavigate()
 
-  // Navegar para a rota selecionada
-  const handleSelectOption = (path: string) => {
-    navigate(path)
+  // Navegar para a rota do Wizard, passando o tipo de fluxo no state
+  const handleSelectOption = (isOptimized: boolean) => {
+    navigate('/new-cv/builder', { state: { isOptimized } }) // Passar o estado!
   }
 
   return (
@@ -31,7 +31,7 @@ const NewCVTypePage: React.FC = () => {
             icon={<FileGenericIcon />}
             title="Currículo Genérico"
             description="Crie um currículo geral sem focar em uma vaga específica"
-            onClick={() => handleSelectOption('/new-cv/generic')}
+            onClick={() => handleSelectOption(false)} // isOptimized: false
             isOutline
           />
           
@@ -39,7 +39,7 @@ const NewCVTypePage: React.FC = () => {
             icon={<SparkleIcon />}
             title="Currículo Personalizado"
             description="Otimize seu currículo para uma vaga específica"
-            onClick={() => handleSelectOption('/new-cv/optimized')}
+            onClick={() => handleSelectOption(true)} // isOptimized: true
           />
         </div>
       </div>
