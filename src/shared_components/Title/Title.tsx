@@ -1,13 +1,9 @@
 import React from 'react'
 import './Title.css'
+// NOVO: Importar a interface do arquivo de tipagem local
+import type { TitleProps } from './Title.types'
 
-type Props = {
-  small?: boolean
-  className?: string
-  subtitle?: string
-}
-
-const Title: React.FC<Props> = ({ small = false, className = '', subtitle }) => {
+const Title: React.FC<TitleProps> = ({ small = false, className = '', subtitle }) => {
   return (
     <div className={`title-root ${small ? 'title-small' : ''} ${className}`.trim()}>
       <div className="title-mark">AId</div>

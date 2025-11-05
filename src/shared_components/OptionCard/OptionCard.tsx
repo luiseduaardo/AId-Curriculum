@@ -1,15 +1,8 @@
 import React from 'react'
 import './OptionCard.css'
+import type { OptionCardProps } from './OptionCard.types'
 
-type Props = {
-  icon: React.ReactNode
-  title: string
-  description: string
-  onClick: () => void
-  isOutline?: boolean // NOVA PROP: para usar o estilo do card Genérico (borda)
-}
-
-const OptionCard: React.FC<Props> = ({ icon, title, description, onClick, isOutline = false }) => {
+const OptionCard: React.FC<OptionCardProps> = ({ icon, title, description, onClick, isOutline = false }) => {
   return (
     <button className={`start-option-card ${isOutline ? 'is-outline' : ''}`} onClick={onClick}>
       <div className="card-icon">{icon}</div>
@@ -18,4 +11,5 @@ const OptionCard: React.FC<Props> = ({ icon, title, description, onClick, isOutl
     </button>
   )
 }
+
 export default OptionCard
