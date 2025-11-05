@@ -1,8 +1,0 @@
-/* StartPage layout styles moved to PageCardLayout.css.
-   This file keeps only CSS variables if other components rely on them. */
-
-:root {
-  --resources-bg: #E8F5E9; /* Verde-claro */
-  --text-dark: #0b1220;
-  --accent: #2dd4bf;
-}

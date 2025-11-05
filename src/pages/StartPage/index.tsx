@@ -1,10 +1,8 @@
 import React from 'react'
-// REMOVER: './StartPage.css' (Estilos de layout serão movidos)
 import { useNavigate } from 'react-router-dom'
 import OptionCard from '@/shared_components/OptionCard/OptionCard'
 import PageCardLayout from '@/shared_components/PageCardLayout/PageCardLayout' // NOVO: Importar Layout
 
-// Ícones SVG simples (substituindo o "raio" e o "documento")
 const SparkleIcon = () => (
   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M5 12h14M12 5l7 7-7 7M12 5l-7 7 7 7M12 5l-7 7 7 7"></path><path d="M12 5l7 7-7 7M12 5l-7 7 7 7"></path></svg>
 )
