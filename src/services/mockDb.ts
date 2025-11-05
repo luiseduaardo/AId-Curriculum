@@ -35,33 +35,38 @@ const mockGeneratedCV: GeneratedCV = {
   languages: [{ name: 'Português', level: 'Nativo' }, { name: 'Inglês', level: 'Intermediário' }],
 }
 
-// Simple compatibility analyzer that compares skills
-function analyzeCompatibilitySimple(cv: GeneratedCV, targetDescription?: string) {
-  if (!targetDescription) return null
-
-  // naive extraction: find keywords in targetDescription
-  const requiredSkills = ['Python', 'SQL', 'Spark', 'Kubernetes', 'AWS']
+// Rich compatibility analyzer with more suggestions and learning resources
+function analyzeCompatibilityRich(cv: GeneratedCV, targetDescription?: string) {
+  // If no target description is provided, still perform a heuristic analysis based on a default set
+  const requiredSkills = ['Python', 'SQL', 'Spark', 'Kubernetes', 'AWS', 'ETL', 'NoSQL', 'Terraform']
   const skillsStatus = requiredSkills.map((s) => ({ name: s, has_skill: cv.skills.includes(s) }))
 
   const matchCount = skillsStatus.filter((s) => s.has_skill).length
   const score = Math.round((matchCount / requiredSkills.length) * 100)
 
   return {
-    compatibility_score: score,
+    compatibility_score: score, // Ex: 62%
     skills: skillsStatus,
-    improvement_suggestions: skillsStatus
-      .filter((s) => !s.has_skill)
-      .map((s) => `Considere aprender ${s.name}`),
-    learning_resources: skillsStatus
-      .filter((s) => !s.has_skill)
-      .map((s) => ({
-        title: `${s.name} - Course`,
-        url: 'https://example.com',
-        type: 'course',
-        platform: 'Example',
-        description: `Recurso para aprender ${s.name}`,
-      })),
-  }
+    
+    // Sugestões ricas baseadas no protótipo
+    improvement_suggestions: [
+      "Destaque suas experiências com projetos práticos e resultados quantificáveis. Use números e métricas sempre que possível.",
+      "Reorganize suas experiências profissionais em ordem cronológica inversa, começando pela mais recente.",
+      "Adicione uma seção de 'Resumo Profissional' no início do currículo destacando suas principais qualificações.",
+      "Use verbos de ação no início de cada item das suas experiências (ex: 'Desenvolvi', 'Implementei', 'Liderei').",
+      "Personalize seu currículo para incluir palavras-chave específicas mencionadas na descrição da vaga.",
+    ],
+    
+    // Recursos de Aprendizado mockados
+    learning_resources: [
+      // Kubernetes
+      { title: "Kubernetes Master Course", url: "https://udemy.com/kube", type: "course", platform: "Udemy", description: "Curso prático de Kubernetes (containers e orquestração)" },
+      { title: "Kubernetes Official Docs", url: "https://kubernetes.io/docs", type: "documentation", platform: "K8s", description: "Documentação oficial do Kubernetes" },
+      // Terraform
+      { title: "Terraform HashiCorp Course", url: "https://hashicorp.com/terraform", type: "course", platform: "HashiCorp", description: "Curso oficial e guias do Terraform" },
+      { title: "Terraform Crash Course", url: "https://youtube.com/terraform", type: "tutorial", platform: "YouTube", description: "Introdução prática ao Terraform" },
+    ],
+  };
 }
 
 export async function generateCVFromRequest(req: CVRequest): Promise<CVResponse> {
@@ -77,7 +82,7 @@ export async function generateCVFromRequest(req: CVRequest): Promise<CVResponse>
         title: req.desired_role || mockGeneratedCV.personal_info.title,
       },
     },
-    job_compatibility: analyzeCompatibilitySimple(mockGeneratedCV, req.target_job_description ?? req.desired_role ?? undefined) ?? undefined,
+  job_compatibility: analyzeCompatibilityRich(mockGeneratedCV, req.target_job_description ?? req.desired_role ?? undefined) ?? undefined,
   }
 
   // simulate async

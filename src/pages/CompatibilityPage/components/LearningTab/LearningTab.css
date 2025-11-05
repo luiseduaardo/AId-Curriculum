@@ -1,0 +1,11 @@
+.skill-resource-group { margin-bottom: 25px; }
+.skill-group-title { font-size: 18px; font-weight: 700; margin-top: 0; margin-bottom: 10px; color: var(--text-dark); }
+.resource-list { list-style: none; padding: 0; }
+.resource-item-box {
+    background: #ffffff;
+    border: 1px solid #E0E0E0;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+}
+.resource-item-box a { font-weight: 600; color: var(--navy, #1A237E); text-decoration: none; }

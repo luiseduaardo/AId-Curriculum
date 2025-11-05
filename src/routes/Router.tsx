@@ -4,6 +4,7 @@ import StartPage from '@/pages/StartPage'
 import NewCVTypePage from '@/pages/NewCVTypePage'
 // NOVO: Importar o Wizard unificado do fluxo de criação de CV
 import CVBuilderWizard from '@/pages/CVBuilderWizard'
+import CompatibilityPage from '@/pages/CompatibilityPage' // NOVO: Página de Análise
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -53,6 +54,8 @@ const Router = () => {
   <Route path="/new-cv/builder" element={<RouteWrapper key="cv-builder-wizard" component={CVBuilderWizard} />} />
 
   {/* As rotas individuais do formulário foram removidas e substituídas pelo Wizard */}
+  {/* NOVA ROTA: Análise de Compatibilidade */}
+  <Route path="/analysis" element={<RouteWrapper key="analysis-page" component={CompatibilityPage} />} />
       </Routes>
     </AnimatePresence>
   )

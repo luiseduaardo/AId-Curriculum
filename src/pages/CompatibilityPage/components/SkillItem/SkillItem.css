@@ -1,0 +1,22 @@
+.skill-item {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    border: 1px solid transparent;
+}
+.skill-icon { margin-right: 5px; font-size: 16px; line-height: 1; }
+.skill-item.has-skill {
+    background: #E0F2F1;
+    color: #004D40;
+    border-color: #004D40;
+}
+.skill-item.missing-skill {
+    background: #FFEBEE;
+    color: #B71C1C;
+    border-color: #B71C1C;
+}

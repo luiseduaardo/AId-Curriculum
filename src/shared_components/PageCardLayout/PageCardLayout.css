@@ -28,11 +28,24 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   max-width: 900px;
   width: 100%;
-  padding: 40px;
+  
+  /* NOVO: Propriedades para Rolagem Interna do Card */
+  max-height: 90vh; /* Permite que o card ocupe quase toda a altura da tela */
+  overflow-y: auto; /* Habilita a rolagem interna do card */
+  
+  /* NOVO: O card inteiro agora é o elemento scrollável */
+  padding: 0; /* Remover padding aqui e aplicar aos filhos */
+  
+  /* Importante para a posição sticky do Footer funcionar */
+  display: flex;
+  flex-direction: column; 
 }
 
 .content-inner {
-  text-align: center;
+    padding: 40px; 
+    text-align: center;
+    /* NOVO: Garante que o conteúdo role */
+    flex-grow: 1; 
 }
 
 /* NOVO: Container de Opções (Layout de 2 Colunas) */

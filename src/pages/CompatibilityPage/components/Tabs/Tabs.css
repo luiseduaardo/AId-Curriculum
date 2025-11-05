@@ -1,0 +1,39 @@
+.custom-tabs-container {
+    width: 100%;
+}
+
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    background: #E0E0E0; /* Fundo neutro para a barra */
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 4px;
+}
+
+.tab-item {
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tab-item.active {
+    background: var(--accent, #2dd4bf); /* Verde-água de destaque */
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-item:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tabs-content {
+    /* Pode ter um padding interno se necessário */
+}
