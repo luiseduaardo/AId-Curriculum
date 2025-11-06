@@ -1,0 +1,132 @@
+:root{
+  --navy: #1A237E; /* hero deep navy */
+  --navy-2: #09306b; /* secondary for gradient */
+  --accent: #2dd4bf; /* teal/cyan accent for logo and buttons */
+  --resources-bg: #E8F5E9; /* light green / beige-like per request */
+  --text-dark: #0b1220;
+}
+
+/* Reset container */
+.hp-root{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ensure full viewport height */
+  font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', 'Helvetica Neue', Arial;
+  color: var(--text-dark);
+  align-items: stretch;
+}
+
+/* HERO / Top section */
+.hp-hero{
+  position: relative;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 60%);
+  color: #fff;
+  padding: 80px 20px 56px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%; /* ensure full width */
+}
+
+
+
+.hp-hero-inner{
+  max-width: 980px;
+  margin: 0 auto; /* center hero content */
+  z-index: 2;
+}
+
+.hp-logo{
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.hp-logo-mark{
+  display: inline-block;
+  background: var(--accent);
+  color: #042027;
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 30px;
+}
+
+.hp-logo-text{
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hp-subtitle{
+  margin: 0 auto;
+  max-width: 820px;
+  font-size: 18px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* RESOURCES / Bottom section */
+.hp-resources{
+  background: var(--resources-bg); /* full width resources background */
+  width: 100%;
+  padding: 64px 20px;
+
+  /* NOVO: Faz a seção de recursos crescer para preencher o espaço vertical. */
+  flex-grow: 1;
+  padding-bottom: 80px;
+}
+
+.hp-resources-inner{
+  /* Centraliza e limita a largura do conteúdo interno */
+  max-width: 1100px; /* Largura padrão de conteúdo */
+  margin: 0 auto; /* Centralização */
+  padding: 0 16px; /* Padding interno para telas menores */
+
+  /* Layout de 2 colunas para FeaturesList e CTACard */
+  display: flex; /* ou grid */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.hp-features{flex:2}
+.hp-cta{flex:1;max-width:380px}
+
+.hp-cta-copy{
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  color: #2b3942;
+}
+
+.hp-cta-button{
+  background: var(--accent); /* teal/cyan accent */
+  color: #042027; /* dark text for contrast on accent */
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-transform: none;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 860px){
+  .hp-resources-inner{
+    /* Volta para uma coluna no mobile */
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .hp-hero{
+    padding: 56px 16px;
+  }
+
+  .hp-logo-mark, .hp-logo-text{
+    font-size: 22px;
+  }
+}

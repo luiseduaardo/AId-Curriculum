@@ -1,0 +1,67 @@
+.content-inner h1 {
+  margin-bottom: 8px;
+}
+
+.content-inner p {
+  color: #555;
+}
+
+.analysis-page {
+  text-align: center;
+}
+
+.score-header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  /* Remover estilos de Score Ring antigo que agora estão no componente ScoreRing.css */
+}
+
+.form-title {
+  margin-bottom: 5px;
+  font-size: 32px;
+}
+
+.tabs-wrapper {
+  /* REMOVER: max-height and overflow so content can expand */
+  padding: 0; 
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+
+.analysis-page .content-inner {
+  padding-bottom: 10px; /* Ajustar padding inferior */
+}
+
+/* Tabs content sections should control their own internal padding */
+.tab-content-section {
+  padding: 0 0px; /* Reduzir padding para o scroll */
+  text-align: left;
+}
+
+/* Botão de Ação: FIXO na parte inferior do card */
+.action-footer {
+  /* Novo: Torna o footer fixo no fundo do card-container scrollável */
+  position: sticky;
+  bottom: 0; /* Coloca no fundo exato da área scrollável */
+  z-index: 10;
+    
+  background: #ffffff; /* Garante que o fundo branco cubra a área de scroll */
+  padding-top: 15px; 
+  padding-bottom: 20px; /* Adiciona padding inferior */
+  border-top: 1px solid #f0f0f0; 
+    
+  text-align: center;
+  width: 100%; 
+  box-sizing: border-box;
+    
+  /* NOVO: Margens laterais para compensar o padding movido do card-container */
+  padding-left: 40px; 
+  padding-right: 40px;
+    
+}
+@media (max-width: 768px) {
+  .action-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

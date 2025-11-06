@@ -1,0 +1,58 @@
+/* Estilo Padrão (Fundo Escuro - Currículo Personalizado) */
+.start-option-card {
+    background: #2B3A42;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 300px;
+    min-height: 250px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out;
+    border: none; /* reset for button */
+}
+
+/* Manter o hover padrão para ambos os cartões */
+.start-option-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    color: white; /* Cor do ícone no fundo escuro */
+    font-size: 40px;
+    line-height: 1;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card-description {
+    font-size: 14px;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* NOVO: Estilo para a variante Outline (Currículo Genérico) */
+.start-option-card.is-outline {
+    background: #ffffff; /* Fundo branco */
+    color: var(--text-dark, #0b1220); /* Texto escuro */
+    border: 1px solid var(--accent, #2dd4bf); /* Borda na cor de destaque */
+}
+
+/* Corrigir a cor do ícone no card Outline */
+.start-option-card.is-outline .card-icon {
+    color: var(--accent, #2dd4bf); /* Ícone na cor de destaque */
+}
+
+@media (max-width:860px){
+    .start-option-card{width:100%;max-width:none}
+}

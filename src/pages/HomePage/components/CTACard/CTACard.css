@@ -1,0 +1,42 @@
+.hp-cta{display:flex;justify-content:center}
+.hp-cta-card{
+	background:#ffffff;
+	padding:28px 22px;
+	border-radius:16px;
+	box-shadow:0 10px 30px rgba(2,18,22,0.09);
+	max-width:380px;
+	width:100%;
+	text-align:center;
+	border:1px solid rgba(15,23,42,0.04);
+	transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border 0.3s ease-out;
+}
+.hp-cta-title{margin:0 0 8px 0;font-size:20px;font-weight:800}
+.hp-cta-copy{margin:0 0 18px 0;font-size:14px;color:#2b3942}
+.hp-cta-button{
+	background:var(--accent);
+	color:#042027;
+	border:none;
+	padding:12px 16px;
+	border-radius:10px;
+	font-weight:700;
+	cursor:pointer;
+	width:100%;
+	text-transform:none;
+	transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.hp-cta-card:hover{
+	transform: translateY(-5px);
+	box-shadow: 0 15px 40px rgba(2,18,22,0.15);
+	border: 1px solid rgba(15,23,42,0.1);
+}
+
+.hp-cta-button:hover{
+	transform: scale(1.02);
+	opacity: 0.9;
+}
+
+.hp-cta-button:active{
+	transform: scale(0.98);
+	opacity: 1;
+}

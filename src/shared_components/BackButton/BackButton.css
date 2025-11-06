@@ -1,0 +1,23 @@
+/* Copilot, crie o CSS minimalista, seguindo o estilo definido anteriormente. */
+
+.back-button {
+  background: none;
+  border: none;
+  /* NOVO: Use var(--text-dark) que é o foreground na StartPage */
+  color: var(--text-dark, #0b1220);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  transition: opacity 0.2s;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  /* Novo: Ajuste o alinhamento vertical para o texto "Voltar" ficar bem centralizado */
+  display: flex;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
