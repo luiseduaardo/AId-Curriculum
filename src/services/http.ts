@@ -1,5 +1,5 @@
 import type { CVRequest } from '@/types/resume'
-import { generateCVFromRequest } from './mockDb'
+import { generateCVFromRequest } from './mockApi'
 
 type MetaEnv = { env?: Record<string, string> }
 const meta = (import.meta as unknown) as MetaEnv

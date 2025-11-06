@@ -15,8 +15,11 @@ const CompatibilityPage: React.FC = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [activeTab, setActiveTab] = React.useState<string>('habilidades')
-    const compatibilityData = location.state?.compatibilityData as JobCompatibilityAnalysis | undefined
+    // The wizard passes `reviewData` which contains generated_cv and job_compatibility
+    const reviewData = location.state?.reviewData as import('@/types/resume').CVResponse | undefined
+    const compatibilityData = reviewData?.job_compatibility as JobCompatibilityAnalysis | undefined
     if (!compatibilityData) {
+        // If compatibility data is not present, redirect home
         navigate('/', { replace: true });
         return null;
     }
@@ -44,8 +47,13 @@ const CompatibilityPage: React.FC = () => {
                                         />
                                 </div>
                 <div className="action-footer fixed-bottom">
-                    <button className="btn-primary" onClick={() => navigate('/result-final')}>
-                        Escolher Template Visual
+                    <button
+                        className="btn-primary"
+                        onClick={() => navigate('/final-review', { state: { reviewData } })}
+                        disabled={!reviewData}
+                        title={reviewData ? 'Continuar para revisão final' : 'Dados do currículo ausentes'}
+                    >
+                        Revisar Currículo
                     </button>
                 </div>
             </div>

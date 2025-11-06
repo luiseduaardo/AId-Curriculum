@@ -1,0 +1,198 @@
+/* Professional, single-source styles for ListItemEditor */
+.list-editor { 
+    border: 1px solid #e0e0e0; /* Borda mais fina e clara */
+    padding: 20px; /* Mais padding geral */
+    border-radius: 12px;
+    background: #fcfcfc; /* Fundo bem suave */
+    margin-bottom: 25px;
+}
+
+.list-editor-header { 
+    /* ... (Manter estilos existentes) ... */
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.list-items-container { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 0; /* Remover gap, pois a borda/padding interna dará o espaçamento */
+    padding: 0;
+    border: 1px solid #ddd; /* Borda externa para agrupar */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.list-item-wrapper {
+    background: #ffffff; 
+    padding: 15px 20px; /* Padding interno consistente */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinhar ao topo, pois o texto pode quebrar */
+    border-bottom: 1px solid #eee; /* Linha de separação entre itens */
+}
+.list-item-wrapper:last-child {
+    border-bottom: none; 
+}
+
+.item-preview { 
+    flex: 1; 
+    padding-right: 20px; 
+    text-align: left;
+    color: var(--text-dark, #0b1220); 
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    /* Garantir que o conteúdo principal use a maior parte do espaço */
+}
+
+.item-actions {
+    display: flex; 
+    flex-direction: column; /* NOVO: Empilhar ações para melhor UX mobile */
+    gap: 4px; /* Espaçamento vertical sutil entre as ações */
+    flex-shrink: 0; 
+    text-align: right;
+}
+
+/* Estilo para os botões de ação como links discretos */
+.item-actions button {
+    background: none;
+    border: none;
+    color: #0656A6; /* Azul de link profissional */
+    font-size: 13px; /* Fonte menor e discreta */
+    padding: 0 4px; /* Padding mínimo para ação de link */
+    cursor: pointer;
+    text-decoration: none; /* Remover sublinhado padrão */
+    opacity: 0.85;
+    font-weight: 400;
+}
+
+.item-actions button:hover { 
+    opacity: 1; 
+    text-decoration: underline; /* Adicionar sublinhado no hover */
+}
+
+/* NOVO: Estilo para o botão de adição de item */
+.btn-add-item { 
+    margin-top: 20px; 
+    padding: 10px 18px; 
+    font-size: 15px;
+}
+.list-editor { 
+    border:1px solid #eee; 
+    padding:12px; 
+    border-radius:8px; 
+    background:#fafafa;
+    margin-bottom: 20px;
+}
+.list-editor-header { 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    margin-bottom:8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.list-items-container { 
+    display:flex; 
+    flex-direction:column; 
+    gap: 12px; /* Aumentar espaçamento entre os itens */
+    padding: 10px 0;
+}
+.list-item-wrapper {
+    background: #ffffff; 
+    border: 1px solid #ddd; /* Borda mais visível */
+    padding: 12px; 
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-preview { 
+    flex: 1; 
+    padding-right: 15px; /* Mais padding para afastar o texto dos botões */
+    text-align: left;
+    color: var(--text-dark, #0b1220); 
+    font-size: 15px;
+}
+
+.item-actions {
+    .list-editor { 
+        border: 1px solid #eee;
+        padding: 15px; /* Aumentar padding geral */
+        border-radius: 8px;
+        background: #fafafa; /* Fundo suave para o painel */
+        margin-bottom: 20px;
+    }
+
+    .list-editor-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 15px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .list-items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1px; /* Gap mínimo para simular linhas de lista */
+        padding: 0;
+        border: 1px solid #ddd; /* Borda externa para agrupar */
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    .list-item-wrapper {
+        background: #ffffff;
+        padding: 15px; /* Padding interno generoso */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #eee; /* Linha de separação entre itens */
+    }
+    .list-item-wrapper:last-child {
+        border-bottom: none; /* Remover borda do último item */
+    }
+
+    .item-preview {
+        flex: 1;
+        padding-right: 15px;
+        text-align: left;
+        color: var(--text-dark, #0b1220);
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .item-actions {
+        display: flex;
+        gap: 12px; /* Espaço entre os botões de ação */
+        flex-shrink: 0;
+    }
+
+    /* Estilo para os botões de ação como links discretos */
+    .item-actions button {
+        background: none;
+        border: none;
+        color: #0656A6; /* Cor de link primária */
+        font-size: 14px;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 0.8;
+        transition: opacity 0.12s ease;
+    }
+
+    .item-actions button:hover { opacity: 1; }
+
+    .btn-add-item {
+        margin-top: 15px;
+        padding: 10px 18px; /* Ajustar padding do botão + */
+        width: auto;
+        font-size: 16px;
+    }
+	padding: 6px 12px; 

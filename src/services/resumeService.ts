@@ -1,5 +1,5 @@
 import type { CVRequest, CVResponse } from '@/types/resume'
-import { generateCVFromRequest } from './mockDb'
+import { generateCVFromRequest } from './mockApi'
 
 /**
  * Fetch the user's CV by id from the data layer. Returns null when not found.

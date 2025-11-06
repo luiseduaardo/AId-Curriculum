@@ -63,11 +63,11 @@ const CVBuilderWizard: React.FC = () => {
                 // Limpar rascunho
                 try { sessionStorage.removeItem(STORAGE_KEY) } catch (e) { console.warn('Could not remove CV draft from sessionStorage', e) }
 
+                // Navega para a página adequada dependendo do fluxo: otimizado => /analysis, genérico => /final-review
                 if (isOptimized) {
-                    // Navega para a página de análise com dados retornados
-                    navigate('/analysis', { state: { compatibilityData: response.job_compatibility } })
+                    navigate('/analysis', { state: { reviewData: response } })
                 } else {
-                    navigate('/result')
+                    navigate('/final-review', { state: { reviewData: response } })
                 }
             } catch (error) {
                 console.error('Failed to submit CV request', error)

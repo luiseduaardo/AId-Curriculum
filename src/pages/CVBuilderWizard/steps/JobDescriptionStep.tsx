@@ -20,11 +20,7 @@ const JobDescriptionStep: React.FC<Props> = ({ data, onNext, onBack, isLastStep,
       onSubmit={handleSubmit}
       onBack={onBack}
       isLastStep={isLastStep}
-    >
-        <div className="input-header">
-            <button type="button" className="input-mode-btn active">Colar Texto</button>
-            <button type="button" className="input-mode-btn upload-btn">Upload PDF</button>
-        </div>
+  >
         <textarea
             className="form-textarea"
             placeholder="Cole aqui a descrição completa da vaga..."

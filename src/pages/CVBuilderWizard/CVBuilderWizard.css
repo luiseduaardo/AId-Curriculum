@@ -113,32 +113,4 @@
 /* ------------------------------------------------ */
 
 /* Job Description - Botões Colar/Upload */
-.input-header {
-    display: flex;
-    margin-bottom: 20px;
-    border: 1px solid var(--accent); 
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.input-mode-btn {
-    flex-grow: 1;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s;
-    background: #ffffff; 
-    color: var(--text-dark);
-}
-
-.input-mode-btn.active {
-    background: #ffffff; 
-    border-right: 1px solid var(--accent);
-    color: var(--text-dark);
-}
-
-.input-mode-btn.upload-btn {
-    background: #D9F7E8; /* Verde claro do protótipo */
-    color: var(--text-dark);
-}
+/* Job Description buttons removed - textarea only now */
