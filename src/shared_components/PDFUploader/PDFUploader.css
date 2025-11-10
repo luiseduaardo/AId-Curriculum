@@ -1,0 +1,7 @@
+.pdf-uploader { border: 1px dashed var(--border); padding: 1rem; border-radius: 8px; }
+.drop-area { padding: 1rem; text-align: center; }
+.drop-area input[type=file] { display: block; margin: 0.5rem auto; }
+.loading { color: var(--muted); }
+.error { color: red }
+.preview { margin-top: 1rem; max-height: 300px; overflow: auto }
+.preview pre { white-space: pre-wrap }
