@@ -61,10 +61,13 @@
     },
     test: {
       globals: true,
-      environment: 'node',
-      setupFiles: './test/setupTests.ts',
+      // use a DOM-like environment for react testing library
+      environment: 'happy-dom',
+      // setup file lives under src/
+      setupFiles: './src/setupTests.ts',
       css: true,
-      include: ['test/**/*.test.{ts,tsx,js,jsx}', 'test/**/*.spec.{ts,tsx,js,jsx}'],
+      // tests are under src/ not test/
+      include: ['src/**/*.test.{ts,tsx,js,jsx}', 'src/**/*.spec.{ts,tsx,js,jsx}'],
     },
   });
 

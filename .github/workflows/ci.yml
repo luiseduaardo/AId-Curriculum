@@ -25,3 +25,6 @@ jobs:
 
       - name: Executar testes com Vitest
         run: npm test
+
+      - name: Verificar cobertura de teste
+        run: npm run coverage
