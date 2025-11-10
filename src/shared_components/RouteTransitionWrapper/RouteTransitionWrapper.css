@@ -1,0 +1,27 @@
+.route-transition-wrapper{
+  /* Base state */
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+/* When mounting, we can add a class to animate in (JS can toggle it) */
+.route-transition-wrapper.enter{
+  opacity: 0;
+  transform: translateX(12px);
+}
+
+.route-transition-wrapper.enter-active{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.route-transition-wrapper.exit{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.route-transition-wrapper.exit-active{
+  opacity: 0;
+  transform: translateX(-12px);
+}

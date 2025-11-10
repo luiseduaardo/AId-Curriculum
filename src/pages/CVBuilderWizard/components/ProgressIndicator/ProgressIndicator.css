@@ -1,0 +1,21 @@
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 0 5px; /* Adiciona um pequeno padding para o efeito visual */
+}
+.progress-bar .step {
+    flex-grow: 1;
+    height: 8px;
+    background: #E0E0E0; /* Cinza claro */
+    margin-right: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+.progress-bar .step.active {
+    /* Cor de destaque (accent) deve ser herdada do contexto ou passada como variável */
+    background: var(--accent, #2dd4bf); 
+}
+.progress-bar .step:last-child {
+    margin-right: 0;
+}

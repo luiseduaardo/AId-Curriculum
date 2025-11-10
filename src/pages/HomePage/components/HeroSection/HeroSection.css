@@ -1,0 +1,18 @@
+.hp-hero{
+  position: relative;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 60%);
+  color: #fff;
+  padding: 80px 20px 56px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.hp-hero-inner{
+  max-width: 980px;
+  z-index: 2;
+}
+
+.hp-subtitle{margin:0 auto;max-width:820px;font-size:18px;line-height:1.6;opacity:0.95}

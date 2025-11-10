@@ -1,0 +1,15 @@
+.form-step-content {
+    /* Herda alinhamento e largura de CVBuilderWizard.css */
+    padding-top: 20px;
+}
+
+.form-title {
+    /* Redefinir margem para ficar mais próximo do subtítulo */
+    margin-bottom: 8px; 
+}
+
+.form-subtitle {
+    margin-bottom: 20px;
+    color: #666; 
+    font-size: 16px;
+}

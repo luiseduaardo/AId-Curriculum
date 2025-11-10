@@ -1,0 +1,10 @@
+.suggestion-list { list-style: none; padding: 0; }
+.suggestion-item {
+    background: #D9F7E8; /* Fundo verde-água suave */
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    color: var(--text-dark);
+    font-size: 16px;
+    text-align: left;
+}
