@@ -1,0 +1,27 @@
+name: Testes automatizados do front-end
+
+on:
+  push:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    name: Rodar testes unitários
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js v18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes com Vitest
+        run: npm test

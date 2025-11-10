@@ -3,6 +3,8 @@
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
 
+  
+
   export default defineConfig({
     plugins: [react()],
     resolve: {
@@ -57,4 +59,16 @@
       port: 3000,
       open: true,
     },
+    test: {
+      globals: true,
+      // use a DOM-like environment for react testing library
+      environment: 'happy-dom',
+      // setup file lives under src/
+      setupFiles: './src/setupTests.ts',
+      css: true,
+      // tests are under src/ not test/
+      include: ['src/**/*.test.{ts,tsx,js,jsx}', 'src/**/*.spec.{ts,tsx,js,jsx}'],
+    },
   });
+
+  
