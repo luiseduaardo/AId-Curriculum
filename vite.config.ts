@@ -3,6 +3,8 @@
   import react from '@vitejs/plugin-react-swc';
   import path from 'path';
 
+  
+
   export default defineConfig({
     plugins: [react()],
     resolve: {
@@ -57,4 +59,13 @@
       port: 3000,
       open: true,
     },
+    test: {
+      globals: true,
+      environment: 'node',
+      setupFiles: './test/setupTests.ts',
+      css: true,
+      include: ['test/**/*.test.{ts,tsx,js,jsx}', 'test/**/*.spec.{ts,tsx,js,jsx}'],
+    },
   });
+
+  
