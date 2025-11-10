@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { exampleCVRequest, exampleCVResponse } from '../../src/types/resume'
+import { exampleCVRequest, exampleCVResponse } from './resume'
 
 describe('types example objects', () => {
   it('exampleCVRequest has expected fields', () => {

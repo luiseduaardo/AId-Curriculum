@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { generateCVFromRequest } from '../../src/services/mockApi'
+import { generateCVFromRequest } from './mockApi'
 
 describe('mockApi.generateCVFromRequest', () => {
   it('returns db content when present', async () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { shortName } from '../../src/utils/formatters';
+import { shortName } from './formatters';
 
 describe('shortName', () => {
   it('returns first two name parts joined', () => {

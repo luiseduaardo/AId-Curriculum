@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import * as resumeService from '../../src/services/resumeService'
-import * as mockApi from '../../src/services/mockApi'
+import * as resumeService from './resumeService'
+import * as mockApi from './mockApi'
 
 describe('resumeService.submitCVRequest', () => {
   beforeEach(() => {

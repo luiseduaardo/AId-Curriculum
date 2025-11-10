@@ -3,7 +3,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
-import BackButton from '../../../src/shared_components/BackButton/BackButton';
+import BackButton from './BackButton';
 
 // 1. Mock (Simulação) do react-router-dom
 // Precisamos simular o hook 'useNavigate'
