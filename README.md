@@ -24,14 +24,89 @@ Este projeto é construído com as seguintes tecnologias, divididas em Front-end
 | :--- | :--- | :--- |
 | **Linguagem** | **TypeScript** | Superconjunto do JavaScript para segurança e escalabilidade do código. |
 | **Framework UI** | **React** | Biblioteca principal para a construção da interface de usuário, baseada em componentes. |
-| **Componentes Base** | **Radix UI** | Biblioteca de primitivas de UI acessíveis e sem estilo. Usada como base para a criação dos nossos componentes customizados. |
-| **Estilização** | **Tailwind CSS** | Framework CSS de primeira linha para estilização utilitária rápida e consistente. |
 | **Base** | **HTML5/CSS3** | A fundação padrão para a estrutura e o estilo de toda a aplicação web. |
 | **Build Tool** | **Vite** | Ferramenta de build moderna e rápida, usada tanto para o desenvolvimento local quanto para o empacotamento em produção. |
 | **Gerenciador** | **npm** | Utilizado para instalar e gerenciar todas as dependências e *scripts* do projeto. |
 
 ### 🧠 Back-end
 Estamos organizando nosso Back-end em um repositório a parte! Confira o nosso progresso [nesse link](https://github.com/LugiaKB/aid_curriculum_backend).
+
+## Arquitetura do Projeto
+
+```
+├── 📁 .github
+│   └── 📁 workflows
+│       └── ⚙️ ci.yml                   // Configuração do ambiente de testes automatizados
+├── 📁 src
+│   ├── 📁 pages                        // Páginas da aplicação
+│   │   ├── 📁 CVBuilderWizard
+│   │   ├── 📁 CompatibilityPage
+│   │   ├── 📁 FinalReviewPage
+│   │   ├── 📁 HomePage
+│   │   ├── 📁 NewCVTypePage
+│   │   └── 📁 StartPage
+│   ├── 📁 routes                       // Define todas as rotas da aplicação
+│   ├── 📁 services                     // Lógica de comunicação e interação com a API
+│   ├── 📁 shared_components            // Componentes reutilizáveis
+│   │   ├── 📁 BackButton
+│   │   ├── 📁 FormActions
+│   │   ├── 📁 Header
+│   │   ├── 📁 Modal
+│   │   ├── 📁 OptionCard
+│   │   ├── 📁 PageCardLayout
+│   │   ├── 📁 RouteTransitionWrapper
+│   │   └── 📁 Title
+│   ├── 📁 store
+│   ├── 📁 styles
+│   ├── 📁 types
+│   ├── 📁 utils
+│   ├── 📄 App.tsx                      // Contém o layout global da aplicação
+│   ├── 🎨 index.css
+│   ├── 📄 main.tsx                     // Renderiza o componente principal App
+│   └── 📄 setupTests.ts
+├── ⚙️ .eslintrc.cjs
+├── ⚙️ .gitignore
+├── ⚙️ .prettierrc
+├── 📝 CONTRIBUTING.md
+├── 📄 LICENSE
+├── 📝 README.md
+├── 🌐 index.html
+├── ⚙️ package-lock.json
+├── ⚙️ package.json
+├── ⚙️ tsconfig.json
+├── ⚙️ vercel.json
+└── 📄 vite.config.ts
+```
+
+## Fluxo da Aplicação
+
+1.  O usuário acede à `HomePage` (rota `/`).
+2.  Ao clicar em "Criar meu currículo grátis", é navegado para a `StartPage` (rota `/start`).
+3.  Na `StartPage`, o usuário escolhe "Comece do zero", que navega para `/new-cv`.
+4.  O usuário é levado para a `NewCVTypePage` (rota `/new-cv`).
+5.  Nesta página, ele decide entre:
+    * **"Currículo Genérico"**: Navega para `/new-cv/builder` com o estado `state: { isOptimized: false }`.
+    * **"Currículo Personalizado"**: Navega para `/new-cv/builder` com o estado `state: { isOptimized: true }`.
+6.  A `CVBuilderWizard` (rota `/new-cv/builder`) é renderizada.
+7.  O Wizard filtra os passos a exibir com base no estado `isOptimized`. Se `isOptimized: true`, o primeiro passo é `JobDescriptionStep`. Caso contrário, começa com `PersonalInfoStep`.
+8.  O usuário preenche os formulários de cada etapa (Informações Pessoais, Experiência, Habilidades, Educação). A cada "Próximo", o estado `cvRequest` é atualizado.
+9.  Na última etapa, o botão "Gerar Currículo" chama `handleNext`, que por sua vez chama `submitCVRequest(newCvRequest)`.
+10. O `resumeService` envia os dados para o back-end e recebe um `CVResponse`.
+11. Com a resposta, o `CVBuilderWizard` decide para onde navegar:
+    * Se `isOptimized: true`, navega para a `CompatibilityPage` (`/analysis`), passando os dados da análise.
+    * Se `isOptimized: false`, navega diretamente para a `FinalReviewPage` (`/final-review`).
+12. Na `CompatibilityPage` (`/analysis`), o usuário vê o *score* e pode navegar pelas abas (Habilidades, Sugestões, Aprendizado). Ao clicar em "Revisar Currículo", é levado para a `FinalReviewPage`.
+13. Na `FinalReviewPage` (`/final-review`), o usuário pode alternar entre "Edição" e "Prévia". Na aba "Edição", ele pode selecionar seções específicas (Resumo, Experiência, etc.) para refinar o texto gerado pela IA.
+14. O usuário clica em "Gerar PDF para Download".
+
+
+## Testes automatizados
+
+O front-end utiliza **Vitest** para testes unitários e de componentes, integrado com **React Testing Library**.
+
+* **Configuração**: O arquivo `vite.config.ts` define o ambiente de teste e `src/setupTests.ts` importa matchers como `@testing-library/jest-dom`.
+* O workflow em `.github/workflows/ci.yml` executa `npm test` (que roda `vitest`) automaticamente em pushes e pull requests para as branches `main` e `develop`, promovendo uma Integração Contínua (CI) do projeto.
+
 
 ## ⚙️ Como Executar o Projeto
 
