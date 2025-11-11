@@ -4,8 +4,8 @@
   /* Fundo verde-claro que cobre toda a viewport */
   /* Corrigir o min-height para incluir o espaço do header global (que não é absoluto nesta página) */
   min-height: calc(100vh - 0px); /* O Header é estático, então não precisa de ajuste no min-height */
-  background: var(--resources-bg, #E8F5E9);
-  color: var(--text-dark, #0b1220);
+  background: var(--resources-bg, var(--bg));
+  color: var(--text-dark, #1f192f);
   padding: 0 20px;
   
   /* Centraliza o card-container */
@@ -22,8 +22,8 @@
 
 /* O grande Card Branco que envolve todo o conteúdo */
 .card-container {
-  background: #ffffff;
-  color: var(--text-dark, #0b1220);
+  background: var(--accent-light, #B5E8C3);
+  color: var(--text-dark, #1f192f);
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   max-width: 900px;

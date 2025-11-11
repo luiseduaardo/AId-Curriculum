@@ -1,7 +1,7 @@
 .hp-hero{
   position: relative;
   background: linear-gradient(180deg, var(--navy) 0%, var(--navy-2) 60%);
-  color: #fff;
+  color: var(--fg);
   padding: 80px 20px 56px 20px;
   display: flex;
   align-items: center;

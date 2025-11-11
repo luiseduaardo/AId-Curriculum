@@ -1,20 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Questrial&display=swap');
+
 :root{
-  --bg: #0f172a;
-  --fg: #e6eef8;
-  --resources-bg: #E8F5E9; /* Fundo Claro */
-  --text-dark: #0b1220;
-  
-  /* NOVO: Incluir a cor do Hero aqui para uso pelo Header global */
-  --navy: #1A237E;
+  /* Light mode palette (provided)
+     primary: #1f192f (dark text), #2d6073 (primary), #65b8a6 (accent)
+     supporting: #B5E8C3, #F0F7DA
+  */
+  --bg: #F0F7DA; /* page background - very light green */
+  --fg: #1f192f; /* primary text / foreground */
+  --primary: #2d6073; /* brand primary */
+  --accent: #65b8a6; /* secondary accent */
+  --accent-light: #B5E8C3; /* light accent surface */
+  --resources-bg: #F0F7DA; /* same as bg for consistency */
+  --text-dark: #1f192f;
+  --navy: #2d6073; /* reuse primary for hero/navy */
 }
 html,body,#root{height:100%;}
 body{
   margin:0;
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: 'JetBrains Mono', Questrial, 'Helvetica World', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   background:var(--bg);
   color:var(--fg);
 }
-
 
 /* Ajuste em main para acomodar Header e Router corretamente */
 .app-main-layout, main{

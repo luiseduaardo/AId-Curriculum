@@ -6,8 +6,8 @@
 }
 
 .btn-primary {
-    background: var(--accent, #2dd4bf);
-    color: #042027; 
+    background: var(--accent, #65b8a6);
+    color: var(--fg);
     border: none;
     padding: 12px 24px;
     border-radius: 8px;
@@ -27,13 +27,13 @@
 
 
 .btn-back {
-    background: #f0f0f0; 
-    color: var(--text-dark, #0b1220); 
-    border: 1px solid #ccc;
+    background: var(--accent-light, #B5E8C3);
+    color: var(--text-dark, #1f192f);
+    border: 1px solid rgba(0,0,0,0.08);
     padding: 12px 24px;
     border-radius: 8px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
 }
-.btn-back:hover { background: #e0e0e0; }
+.btn-back:hover { background: rgba(0,0,0,0.03); }
