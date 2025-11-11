@@ -1,0 +1,2 @@
+:root{--bg:#0f172a;--fg:#e6eef8}
+body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--fg)}
